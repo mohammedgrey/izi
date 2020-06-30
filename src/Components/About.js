@@ -8,7 +8,7 @@ class About  extends React.Component{
       <div className="about-class" >
      <div className="jumbotron">
       <h1 className="display-4">About izi</h1>
-      <p className="lead">izi is an online gifts store that was initiated in *date*. All the gifts at izi are handmade. If you are looking for a place to customize your gifts the way you want it, not the way you found it, then you have come to the right place.   </p>
+      <p className="lead">izi is an online gifts store that was initiated in 2017. All the gifts at izi are handmade. If you are looking for a place to customize your gifts the way you want it, not the way you found it, then you have come to the right place.   </p>
       <hr className="my-4"/>
       <p className="end-jumbo">Thanks for your interest in izi. <i class="far fa-heart"></i></p>
     </div>
