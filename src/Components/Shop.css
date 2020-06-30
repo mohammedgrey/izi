@@ -1,0 +1,63 @@
+.shop-class{
+  color:black;
+  font-size: large;
+  margin-top: 75px;
+  margin-bottom:150px ;
+  background-color: white;
+}
+
+.shop-class img{
+
+  width: 200px;
+  height: 200px;
+}
+
+.shop-class h1{
+  clear: both;
+  margin-left: 20px;
+  font-family: 'Poller One', cursive;
+  font-size: 1.6rem;
+  font-weight: 100;
+}
+
+.shop-class .fa-circle{
+  font-size: 0.7rem;
+}
+.shop-class .product-category{
+  padding-top:5px;
+}
+
+.shop-class .search-bar{
+  width:25%;
+  margin-top: 30px;
+  margin-left: 20px;
+  border-radius: 15px;
+  border: 2px solid rgb(41,98,117);
+}
+
+.shop-class :focus{
+ outline: none;
+ border: 3px solid rgb(41,98,117);
+
+}
+
+.shop-class .category-filters{
+  /* position: absolute;
+  top:100px;
+  right: 20px; */
+  margin-left: 20px;
+  margin-top: 3px;
+  
+}
+.shop-class .category-filter{
+  margin-left: 5px;
+  margin-right: 2px;
+}
+.shop-class label{
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgb(41,98,117);
+}
+
+html { margin-bottom: 65px }
+

@@ -1,0 +1,118 @@
+.about-class{
+  margin-top: 75px;
+  margin-bottom:75px ;
+  background-color: white;
+}
+.about-class .jumbotron{
+  background-color: rgb(214,241,234) !important;
+  margin-bottom: 0px !important;
+}
+
+.about-class .display-4{
+  font-family: 'Poller One', cursive;
+}
+
+.about-class .fa-heart{
+  font-size: 1rem;
+}
+.about-class .end-jumbo{
+  font-family: 'Pacifico', cursive !important;
+}
+.about-class .jumbotron .lead{
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+.about-class .founder-info {
+  background-color: rgb(231, 231, 227);
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding:40px;
+
+}
+.about-class .founder-info h1{
+  font-family: 'Poller One', cursive;
+}
+.about-class .founder-info p{
+  font-weight: 600;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+.about-class .founder-info p span{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.5rem;
+  display: block;
+}
+.about-class .founder-info img{
+  width: 300px;
+  height: 200px;
+  border: 4px solid black;
+  border-radius: 50%;
+}
+
+.about-class .contact-info{
+  padding: 40px;
+  margin-bottom: -90px;
+
+}
+.about-class .contact-info h1{
+  font-family: 'Poller One', cursive;
+}
+.about-class .contact-info p{
+  font-size: 1.1rem;
+  margin-left: 60px;
+  font-weight: 600;
+}
+.about-class .contact-info p i{
+  font-size: 1.5rem;
+}
+
+.about-class .contact-info i{
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+
+  .about-class .founder-info {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .about-class .founder-info {
+    display: block;
+  }
+
+  .about-class .founder-info img{
+    width: 200px;
+    height: 150px;
+
+  }
+
+  .about-class .contact-info p{
+    font-size: 0.6rem;
+    margin-left: 20px;
+    font-weight: 600;
+  }
+  .about-class .contact-info p i{
+    font-size: 1rem;
+  }
+
+  .about-class .founder-info h1{
+    
+    font-size: 30px;
+  }
+  .about-class .display-4{
+    margin-top: 20px;
+    font-size: 30px;
+  }
+  .about-class .contact-info h1{
+    font-size: 25px;
+  }
+}
+
+
+
+
