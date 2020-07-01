@@ -158,6 +158,7 @@ export const products=[
     type: "keychains",
   },
   ];
+  
   export const types={
     babies:"babies",
     keychains:"keychains",
