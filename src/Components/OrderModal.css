@@ -1,0 +1,28 @@
+.order-method{
+color:black;
+font-size: 1rem;
+font-weight: 700;
+display: block;
+}
+
+.order-method:focus{
+  text-decoration: none;
+}
+
+.order-method:hover{
+  text-decoration: none;
+  color:black;
+}
+
+.order-method .fa-whatsapp{
+  color: rgb(76,237,105);
+  font-size: 1.5rem;
+  margin-right: 10px;
+
+
+}
+
+#contained-modal-title-vcenter{
+  color: rgb(41,98,117);
+  font-weight: 700;
+}
