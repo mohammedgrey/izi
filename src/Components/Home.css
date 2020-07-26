@@ -1,6 +1,6 @@
-.home-class{
+.home-class {
   margin-top: 75px;
-  margin-bottom:75px ;
+  margin-bottom: 75px;
   width: 100%;
   height: 100%;
   /* background-image: url("https://image.freepik.com/free-vector/watercolor-background_220290-34.jpg");
@@ -17,21 +17,21 @@
   background-color: white;
 } */
 
-.welcome-text{
- position: absolute;
- top:50%;
- left:50%;
- transform: translate(-50%,-50%);
- text-align: center;
+.welcome-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
-.home-class .welcome-text h1{
-  font-family: 'Poller One', cursive;
+.home-class .welcome-text h1 {
+  font-family: "Poller One", cursive;
 }
-.home-class .welcome-text p{
-  font-family: 'Pacifico', cursive;
+.home-class .welcome-text p {
+  font-family: "Pacifico", cursive;
 }
-.home-class img{
+.home-class img {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -39,6 +39,4 @@
   left: 0;
   height: 100%;
   width: 100%;
-
-
 }
