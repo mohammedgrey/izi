@@ -5,7 +5,7 @@ export const products = [
       "https://scontent.fcai20-1.fna.fbcdn.net/v/t1.0-0/p180x540/97352868_708700993213527_7990866407455719424_o.jpg?_nc_cat=101&_nc_sid=9267fe&_nc_eui2=AeGTSfF1inYJocusAg0M4M2_tGrDWUP947e0asNZQ_3jt0rRml4hRzfMBt8vFBm6lKo_FXQaKvRTkEiTQDNjC2uJ&_nc_ohc=DjtwcRMbOPkAX_sPghS&_nc_ht=scontent.fcai20-1.fna&_nc_tp=6&oh=40110c58dde5224451f3535a3594728e&oe=5F438AAE",
     size: "15x15",
     status: "Available upon request",
-    price: "35",
+    price: "150",
     type: "babies",
   },
 
