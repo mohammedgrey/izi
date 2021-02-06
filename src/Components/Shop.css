@@ -88,7 +88,7 @@ html {
   justify-content: center;
   align-items: center;
   padding: 0px 20px;
-  padding-top: 35px;
+  padding-top: 50px;
   flex-wrap: wrap;
 }
 
@@ -165,7 +165,7 @@ html {
 
 .shop-class .favorites-switch {
   position: absolute !important;
-  top: 85px !important;
+  top: 90px !important;
   left: 10px !important;
   margin: 0px !important;
 }
