@@ -22,11 +22,11 @@ class About extends React.Component {
         >
           <div className="mission-or-vision">
             <h1>Mission</h1>
-            <p>vdhv ghdvsg hvdsh hellodw jbhdcshe bdsjhve jvdhve jvev hfew jhfvewh efwh hwefv hewfh</p>
+            <p>Simplify our clients' life by materializing their gift ideas into reality.</p>
           </div>
           <div className="mission-or-vision">
             <h1>Vision</h1>
-            <p>vdhv ghdvsg hvdsh hellodw jbhdcshe bdsjhve jvdhve jvev hfew jhfvewh efwh hwefv hewfh</p>
+            <p>A reality where you don't have to worry about what your next gift could be.</p>
           </div>
         </div>
         <div className="founder-info">
