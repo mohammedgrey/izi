@@ -135,7 +135,7 @@ const Shop = (props) => {
               return (
                 <div key={item._id}>
                   <Product
-                    IamAnAdmin={IamAnAdmin}
+                    IamAnAdmin={IamAnAdmin()}
                     id={item._id}
                     name={item.name}
                     image={item.image}
