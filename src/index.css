@@ -1,0 +1,34 @@
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(195, 219, 213);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(102, 153, 170);
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(141, 194, 206);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(41, 98, 117);
+  opacity: 1; /* Firefox */
+  font-weight: 600;
+}

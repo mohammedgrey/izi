@@ -1,0 +1,55 @@
+.login-page {
+  color: black;
+  font-size: large;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page button {
+  padding: 10px 30px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-weight: 700;
+  height: 80px;
+  display: block;
+  margin: 10px;
+  width: 300px;
+  max-width: 95%;
+}
+
+.login-page .login-with-google img {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  outline: none;
+}
+.login-page button:focus {
+  outline: none;
+}
+.login-page button:hover {
+  background-color: rgb(222, 226, 226);
+  border: none;
+}
+.login-page .login-with-facebook i {
+  font-size: 2.5rem;
+  margin-right: 20px;
+  color: rgb(53, 120, 229);
+}
+.login-page .login-with-facebook span {
+  color: rgb(53, 120, 229);
+}
+@media only screen and (max-width: 400px) {
+  .login-page button {
+    padding: 10px 10px;
+  }
+  .login-page .login-with-google img {
+    margin-right: 10px;
+  }
+  .login-page .login-with-facebook i {
+    margin-right: 10px;
+  }
+}

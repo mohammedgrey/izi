@@ -1,136 +1,122 @@
 .product-class {
   padding: 20px;
-  float: left;
-  height: 325px;
+  height: 320px;
   margin: 12px;
-  margin-right: 0px;
-  background: linear-gradient(180deg, rgb(245, 187, 170) 0%, rgb(254,205,191) 30%,  rgb(108,232,218) 60%,  rgb(41,98,117) 100%);
+  background: linear-gradient(180deg, rgb(245, 187, 170) 0%, rgb(254, 205, 191) 30%, rgb(108, 232, 218) 60%, rgb(41, 98, 117) 100%);
   border-radius: 10px;
   position: relative;
-  overflow:hidden;
+  overflow: visible;
   display: block;
-  width: 250px;
+  width: 270px;
 }
 
-
-
-.product-class .details-class p{
-
+.product-class .details-class p {
   font-weight: 25;
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
 }
 
-.product-class .details-class span{
-
+.product-class .details-class span {
   font-weight: 50;
   font-family: "arial";
   font-size: 0.87rem;
+  margin-right: 5px;
 }
 
-.product-name{
+.product-name {
   text-align: center;
   margin-top: 50px;
   font-family: "arial";
   font-weight: 800;
-
+  font-size: 80% !important;
+  font-size: 1.1vmax !important;
 }
 
-
-.product-class .img-style-item-general{
+.product-class .img-style-item-general {
   border: none;
   box-sizing: border-box;
   width: 100%;
-  height: 160px;
+  height: 170px;
   bottom: 0;
-  -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
   display: block;
 }
 
-.product-class a{
-  color:gray;
+.product-class a {
+  color: gray;
   text-decoration: none;
   font-size: 80%;
   font-weight: 600;
-  z-index:20;
+  z-index: 20;
 }
-.product-class a:hover{
-  color:gray;
+.product-class a:hover {
+  color: gray;
 }
 
-.product-class p{
-  color:white;
+.product-class p {
+  color: white;
   font-weight: 600;
   margin-top: 4px;
   margin-bottom: -0.5px;
   font-size: 100%;
   z-index: 20;
 }
-.product-class button{
+
+.product-class .button-add-or-remove {
   position: absolute;
-  bottom: 10px;
   padding: 5px 10px;
   background-color: white;
   text-transform: uppercase;
   color: black;
   font-weight: 800;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   border: none;
   border-radius: 5px;
-  display: none;
 }
-.product-class button:focus{
+.product-class button:focus {
   outline: none;
   border: none;
 }
-.product-class button:hover{
-  padding: 4px 9px;
- 
- }
-.product-class .order-now{
-  right:10px;
-
+.product-class .button-add-or-remove:hover {
+  font-size: 0.9rem;
 }
-.product-class .show-details{
+.product-class .order-now {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  width: 50px;
+  height: 50px;
+}
+
+.product-class .discount-tag {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  background-color: brown;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: serif !important;
+  font-weight: 700;
+  transform: rotate(-30deg);
+}
+.product-class .edit-product {
+  background-color: rgb(41, 98, 117);
+  top: -15px;
+  right: 10px;
+  color: white;
+  border-radius: 50%;
+}
+.product-class .delete-product {
+  background-color: rgb(41, 98, 117);
+  top: -15px;
   right: 55px;
-
+  color: white;
+  border-radius: 50%;
 }
-
-.product-class:hover{
-cursor: pointer;
-
-}
-
-.product-class:hover button{
-  display: inline-block;
-  
-  }
-
-  .product-class text{
-    display: none;
-    position: absolute;
-
-    bottom: 30px;
-    right: 10px;
-    background-color: white;
-    border: 1px solid black;
-    font-size: 11px;
-    font-weight: 650;
-    width: 95px;
-    padding: 2px 4px;
-    
-  }
-
-  .product-class button:hover text{
-    display: inline-block;
-  }
-
-  /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 768px) {
-
-  .product-class button{
-    display: inline-block;
-  }
-}
-

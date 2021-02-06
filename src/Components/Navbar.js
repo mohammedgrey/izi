@@ -8,13 +8,14 @@ const Navbar = () => (
     <div className="nav-left">
       <NavLink to="/shop/" className="nav-link">
         {" "}
-        <i class="fas fa-circle"></i> Shop <i class="fas fa-circle"></i>
+        <i className="fas fa-circle"></i> Shop <i className="fas fa-circle"></i>
       </NavLink>
     </div>
     <div className="nav-right">
       <NavLink to="/about/" className="nav-link">
         {" "}
-        <i class="fas fa-circle"></i> About <i class="fas fa-circle"></i>
+        <i className="fas fa-circle"></i> About{" "}
+        <i className="fas fa-circle"></i>
       </NavLink>
     </div>
     <Link to="/" className="navbar-brand logo-top">

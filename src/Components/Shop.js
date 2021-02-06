@@ -1,179 +1,187 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./Shop.css";
 import Product from "./Product";
-import { products, types } from "./products";
-
-class Shop extends React.Component {
-  componentDidMount() {
-    this.setState({ products: products });
-  }
-
-  state = {
-    products: [],
-    searchField: "",
-    allCheck: false,
-    keychainsCheck: false,
-    babiesCheck: false,
-    couplesCheck: false,
-    earingsCheck: false,
-  };
-  filterProducts = () => {
-    //check the search field
-    let filteredProducts = products.filter((item) => {
-      return item.name
-        .toLowerCase()
-        .trim()
-        .includes(this.state.searchField.toLowerCase().trim());
-    });
-
-    if (
-      !this.state.keychainsCheck &&
-      !this.state.babiesCheck &&
-      !this.state.couplesCheck &&
-      !this.state.earingsCheck
-    ) {
-      this.setState({ products: filteredProducts });
-    } else {
-      let partialFiltered;
-      let filteredKeychains = [],
-        filteredBabies = [],
-        filteredCouples = [],
-        filteredEarings = [];
-      //check the type
-      partialFiltered = [...filteredProducts];
-      if (this.state.keychainsCheck)
-        filteredKeychains = partialFiltered.filter((item) =>
-          item.type.includes(types.keychains)
-        );
-      partialFiltered = [...filteredProducts];
-      if (this.state.babiesCheck)
-        filteredBabies = partialFiltered.filter((item) =>
-          item.type.includes(types.babies)
-        );
-      partialFiltered = [...filteredProducts];
-      if (this.state.couplesCheck)
-        filteredCouples = partialFiltered.filter((item) =>
-          item.type.includes(types.Couples)
-        );
-      partialFiltered = [...filteredProducts];
-      if (this.state.earingsCheck)
-        filteredEarings = partialFiltered.filter((item) =>
-          item.type.includes(types.Earings)
-        );
-
-      const finalFiltered = filteredKeychains.concat(
-        filteredBabies,
-        filteredCouples,
-        filteredEarings
-      );
-      //filter the page
-      this.setState({ products: finalFiltered });
+import allCategories from "../utils/productCategories";
+import { Autocomplete } from "@material-ui/lab";
+import { CircularProgress, makeStyles, TextField } from "@material-ui/core";
+import { useAuth } from "../Contexts/AuthContext";
+import usePagination from "../customHooks/usePagination";
+import { Link } from "react-router-dom";
+import FavoritesSwitch from "./FavoritesSwitch";
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    width: 338,
+    maxWidth: "95%",
+    borderRadius: "50px",
+  },
+}));
+const Shop = (props) => {
+  const classes = useStyles();
+  const { currentUser } = useAuth();
+  const [search, setSearch] = useState("");
+  const [loadingCurrentUser, setLoadingCurrentUser] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const userClaims = useRef({});
+  useEffect(() => {
+    setLoadingCurrentUser(true);
+    if (currentUser) {
+      currentUser
+        .getIdTokenResult()
+        .then((idToken) => {
+          userClaims.current = idToken.claims;
+        })
+        .catch(console.log);
     }
+    setLoadingCurrentUser(false);
+  }, [currentUser]);
+
+  const IamAnAdmin = () => {
+    return currentUser && userClaims.current && userClaims.current.isAdmin;
   };
 
-  render() {
-    return (
-      <div className="shop-class">
-        <input
-          className="search-bar"
-          type="text"
-          value={this.state.searchField}
-          placeholder=" Search"
-          onChange={(e) => {
-            this.setState({ searchField: e.target.value }, () => {
-              this.filterProducts();
-            });
+  //For pagination
+  const [pageNumber, setPageNumber] = useState(1);
+  const newFlag = useRef(true);
+  const [loadingNew, setLoadingNew] = useState(false);
+  const { products, setProducts, hasMore, loading, error } = usePagination(`/api/products?search=${search}&categories=${categories.join(",")}`, pageNumber, newFlag, setLoadingNew);
+  const observer = useRef();
+  const lastItemElementRef = useCallback(
+    (node) => {
+      if (loading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setPageNumber((prevPageNumber) => prevPageNumber + 1);
+          newFlag.current = false;
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [loading, hasMore]
+  );
+  useEffect(() => {
+    setPageNumber(1);
+    newFlag.current = true;
+  }, [categories, search]);
+
+  //for deletion
+  const afterDeletion = (id) => {
+    setProducts(products.filter((product) => product._id !== id));
+  };
+
+  return (
+    <div className="shop-class">
+      {IamAnAdmin() && (
+        <Link to="/addproduct">
+          <i className="fas fa-plus-circle add-product"></i>
+        </Link>
+      )}
+      {currentUser && <FavoritesSwitch />}
+      <div className="search-and-categories-block">
+        <div className="search-bar-wrapper">
+          <input
+            className="search-bar"
+            type="text"
+            value={search}
+            placeholder="Search"
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          ></input>
+          <i className="fas fa-times" style={{ display: search === "" ? "none" : null }} onClick={() => setSearch("")}></i>
+        </div>
+        <Autocomplete
+          className={classes.formControl}
+          multiple
+          id="tags-outlined"
+          options={allCategories}
+          getOptionLabel={(option) => option}
+          filterSelectedOptions
+          onChange={(_, values) => {
+            setCategories(values);
           }}
-        ></input>
-
-        {/* <input type="checkbox" id="all" name="All" value="all"/>
-        <label for="vehicle1"> I have a bike</label><br></br>
-        <input type="checkbox" id="all" name="All" value="all"/> */}
-        <div className="category-filters">
-          {/* <input onChange={(e)=>{
-
-          this.setState({allCheck:e.target.checked},()=>{
-            this.filterProducts();
-          })
-        }} checked={this.state.allCheck} className="category-filter" type="checkbox" id="all" name="all" value="all"/>
-        <label for="all"> All  </label> */}
-
-          <input
-            onChange={(e) => {
-              this.setState({ keychainsCheck: e.target.checked }, () => {
-                this.filterProducts();
-              });
-            }}
-            checked={this.state.keychainsCheck}
-            className="category-filter"
-            type="checkbox"
-            id="keychains"
-            name="keychains"
-            value="keychains"
-          />
-          <label for="keychains"> Keychains </label>
-
-          <input
-            onChange={(e) => {
-              this.setState({ babiesCheck: e.target.checked }, () => {
-                this.filterProducts();
-              });
-            }}
-            checked={this.state.babiesCheck}
-            className="category-filter"
-            type="checkbox"
-            id="babies"
-            name="babies"
-            value="babies"
-          />
-          <label for="babies"> Babies </label>
-
-          <input
-            onChange={(e) => {
-              this.setState({ couplesCheck: e.target.checked }, () => {
-                this.filterProducts();
-              });
-            }}
-            checked={this.state.couplesCheck}
-            className="category-filter"
-            type="checkbox"
-            id="couples"
-            name="couples"
-            value="couples"
-          />
-          <label for="couples"> Couples </label>
-
-          <input
-            onChange={(e) => {
-              this.setState({ earingsCheck: e.target.checked }, () => {
-                this.filterProducts();
-              });
-            }}
-            checked={this.state.earingsCheck}
-            className="category-filter"
-            type="checkbox"
-            id="earings"
-            name="earings"
-            value="earings"
-          />
-          <label for="earings"> Earings </label>
-        </div>
-
-        <div className="product-category container-fluid">
-          {this.state.products.map((item, index) => (
-            <Product
-              name={item.name}
-              image={require(`../assets/images/products/${item.id}.jpg`)}
-              size={item.size}
-              status={item.status}
-              price={item.price}
-              key={index}
-            />
-          ))}
-        </div>
+          renderInput={(params) => <TextField {...params} variant="outlined" label="Categories" />}
+        />
       </div>
-    );
-  }
-}
+      <div className="product-category container-fluid">
+        {loadingCurrentUser ? (
+          <div className="center">
+            <CircularProgress />
+          </div>
+        ) : loadingNew ? (
+          <div className="center">
+            <CircularProgress />
+          </div>
+        ) : products.length ? (
+          products.map((item, index) => {
+            if (products.length === index + 1)
+              return (
+                <div ref={lastItemElementRef} key={item._id}>
+                  <Product
+                    IamAnAdmin={IamAnAdmin()}
+                    id={item._id}
+                    name={item.name}
+                    image={item.image}
+                    status={item.status}
+                    price={item.price}
+                    discount={item.discount}
+                    categories={item.categories}
+                    afterDeletion={afterDeletion}
+                  />
+                </div>
+              );
+            else
+              return (
+                <div key={item._id}>
+                  <Product
+                    IamAnAdmin={IamAnAdmin}
+                    id={item._id}
+                    name={item.name}
+                    image={item.image}
+                    status={item.status}
+                    price={item.price}
+                    discount={item.discount}
+                    categories={item.categories}
+                    afterDeletion={afterDeletion}
+                  />
+                </div>
+              );
+          })
+        ) : (
+          !loading &&
+          !loadingNew && (
+            <div className="nothing-found-message-wrapper">
+              <p className="nothing-found-message">Sorry! We are afraid we might not currently have what you are looking for. Please contact us so we can customize what you want!</p>
+              <div className="contact-us-to-customize">
+                <a href="https://www.facebook.com/izi.handmade/" target="_blank" rel="noopener noreferrer">
+                  <span>
+                    <i className="fab fa-facebook-f"></i>
+                  </span>
+                </a>
+
+                <a href="https://www.instagram.com/izi.handmade/" target="_blank" rel="noopener noreferrer">
+                  <span>
+                    <i className="fab fa-instagram"></i>
+                  </span>
+                </a>
+
+                <a target="_blank" rel="noopener noreferrer" href={"https://api.WhatsApp.com/send?phone=+201101038345&text=I would like to customize an order..."}>
+                  <span>
+                    <i className="fab fa-whatsapp"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          )
+        )}
+      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>{loading && !loadingNew && <CircularProgress />}</div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div>{error && "Error"}</div>
+      </div>
+    </div>
+  );
+};
 
 export default Shop;

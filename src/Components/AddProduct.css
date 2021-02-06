@@ -1,0 +1,42 @@
+.add-product-page {
+  color: black;
+  font-size: large;
+  margin-top: 75px;
+  margin-bottom: 150px;
+  background-color: white;
+  position: relative;
+}
+
+.add-product-block {
+  background-color: rgb(214, 241, 234);
+  margin: 120px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-field-add-product {
+  display: block;
+}
+.add-product-block .save-product-or-cancel {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* .MuiInputLabel-formControl {
+  position: relative !important;
+  text-align: center;
+  margin-bottom: -15px;
+} */
+
+/* .ImageUploadCard-root-8 {
+  margin-left: 30px;
+  align-self: center;
+} */

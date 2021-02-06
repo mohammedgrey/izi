@@ -1,41 +1,97 @@
-.footer-class{
-
+.footer-class {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   z-index: 999;
-  background: rgb(41,98,117);
+  background: rgb(41, 98, 117);
   overflow: visible;
-  height: 65px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footer-class p
-{
-  position: absolute;
+.footer-class .logged-in-info-or-out {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.footer-class .logged-in-info-or-out div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-class .logged-in-info-or-out img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.footer-class .logged-in-info-or-out p {
+  color: white;
+  display: inline-block;
+  margin-left: 10px;
+  font-family: cursive;
+  margin-bottom: 0px;
+}
+.footer-class .logged-in-info-or-out a {
+  color: white;
+  display: inline-block;
+  margin-left: 10px;
+  font-family: cursive;
+  padding: 10px;
+  /* border: 2px solid rgb(246, 189, 173); */
+  border-radius: 10px;
+  background-color: rgb(54, 126, 134);
+}
+
+.footer-class .logged-in-info-or-out button {
+  background-color: rgb(54, 126, 134);
+  border: none;
+  border-radius: 20px;
+  width: 100px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+.footer-class .logged-in-info-or-out button:focus {
+  outline: none;
+}
+.footer-class .logged-in-info-or-out button:hover {
+  outline: none;
+  font-size: 13px;
+}
+
+.footer-class .social-media-icons-new p {
   color: white;
   font-size: 2rem;
   font-weight: 595;
-  left: 50px;
-  top: 13px;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
+  margin-top: 10px;
 }
 
-.footer-class .social-media-icons{
-
-  position: absolute;
-  right: 50px;
-  top: 13px;
+.footer-class .social-media-icons-new {
   color: white;
   font-size: 1.7rem;
+  display: flex;
+  height: 100%;
+  align-items: center;
 }
 
-.footer-class .social-media-icons a{
+.footer-class .social-media-icons-new a {
   color: white;
   text-decoration: none;
   margin: 20px;
 }
-.footer-class .social-media-icons a:hover{
+.footer-class .social-media-icons-new a:hover {
   color: white;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer-class .social-media-icons-new p {
+    display: none;
+  }
 }

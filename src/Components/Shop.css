@@ -1,63 +1,171 @@
-.shop-class{
-  color:black;
+.shop-class {
+  color: black;
   font-size: large;
   margin-top: 75px;
-  margin-bottom:150px ;
+  margin-bottom: 150px;
   background-color: white;
 }
 
-.shop-class img{
-
+.shop-class img {
   width: 200px;
   height: 200px;
 }
 
-.shop-class h1{
+.shop-class h1 {
   clear: both;
   margin-left: 20px;
-  font-family: 'Poller One', cursive;
+  font-family: "Poller One", cursive;
   font-size: 1.6rem;
   font-weight: 100;
 }
 
-.shop-class .fa-circle{
+.shop-class .fa-circle {
   font-size: 0.7rem;
 }
-.shop-class .product-category{
-  padding-top:5px;
+.shop-class .product-category {
+  padding-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.shop-class .search-bar{
-  width:25%;
-  margin-top: 30px;
-  margin-left: 20px;
-  border-radius: 15px;
-  border: 2px solid rgb(41,98,117);
+.shop-class .search-bar {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(192, 192, 192);
+  border-radius: 5px;
+  padding: 10px;
+}
+.shop-class .search-bar:hover {
+  outline: none;
+  border: 1px solid black;
+}
+.shop-class .search-bar:focus {
+  outline: none;
+  border: 2px solid rgb(41, 98, 117);
 }
 
-.shop-class :focus{
- outline: none;
- border: 3px solid rgb(41,98,117);
-
+.shop-class .search-bar-wrapper {
+  width: 338px;
+  max-width: 95%;
+  height: 55px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  border: none;
 }
 
-.shop-class .category-filters{
-  /* position: absolute;
-  top:100px;
-  right: 20px; */
-  margin-left: 20px;
-  margin-top: 3px;
-  
+.shop-class .search-bar-wrapper i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: rgb(146, 146, 146);
 }
-.shop-class .category-filter{
+.shop-class .search-bar-wrapper i:hover {
+  color: rgb(31, 31, 31);
+  font-size: 1.4rem;
+}
+
+.shop-class .category-filter {
   margin-left: 5px;
   margin-right: 2px;
 }
-.shop-class label{
+.shop-class label {
   font-weight: 700;
   font-size: 1rem;
-  color: rgb(41,98,117);
+  color: rgb(41, 98, 117);
 }
 
-html { margin-bottom: 65px }
+html {
+  margin-bottom: 65px;
+}
 
+.shop-class .search-and-categories-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+  padding-top: 35px;
+  flex-wrap: wrap;
+}
+
+.shop-class .nothing-found-message {
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color: rgb(54, 54, 54);
+}
+.shop-class .contact-us-to-customize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.shop-class .contact-us-to-customize a {
+  border-radius: 50%;
+  border: 3px solid rgb(54, 54, 54);
+  width: 70px;
+  height: 70px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.shop-class .contact-us-to-customize a i {
+  font-size: 30px;
+  width: 100%;
+  height: 100%;
+}
+.shop-class .contact-us-to-customize a:hover {
+  width: 67px;
+  height: 67px;
+}
+
+.shop-class .contact-us-to-customize a .fa-instagram {
+  color: rgb(137, 54, 200);
+}
+.shop-class .contact-us-to-customize a .fa-whatsapp {
+  color: rgb(76, 237, 105);
+}
+
+.shop-class .contact-us-to-customize a:hover .fa-instagram {
+  color: rgb(194, 55, 153);
+}
+.shop-class .contact-us-to-customize a:hover .fa-whatsapp {
+  color: rgb(63, 197, 87);
+}
+
+.nothing-found-message-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  width: 90%;
+}
+
+.shop-class .add-product {
+  position: absolute;
+  top: 85px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(41, 98, 117);
+}
+.shop-class .add-product:hover {
+  font-size: 32px;
+}
+
+.shop-class .favorites-switch {
+  position: absolute !important;
+  top: 85px !important;
+  left: 10px !important;
+  margin: 0px !important;
+}
