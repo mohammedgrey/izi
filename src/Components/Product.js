@@ -53,8 +53,18 @@ const Product = (props) => {
   };
   return (
     <div className="product-class">
-      <img src={props.image} className="img-style-item-general" alt="broken" />
-      <p className="product-name">{props.name} </p>
+      <img
+        src={props.image}
+        className="img-style-item-general"
+        alt="broken"
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = require("../assets/images/logo.jpg");
+        }}
+      />
+      <p className="product-name" style={{ fontSize: props.name && props.name.length > 30 ? "0.8rem" : props.name && props.name.length > 50 ? "0.6rem" : "1rem" }}>
+        {props.name}
+      </p>
       <div className="details-class">
         <p>
           Status: <span>{props.status}</span>
