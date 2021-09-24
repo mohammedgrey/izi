@@ -62,14 +62,25 @@ const Product = (props) => {
           e.target.src = require("../assets/images/logo.jpg");
         }}
       />
-      <p className="product-name" style={{ fontSize: props.name && props.name.length > 30 ? "0.8rem" : props.name && props.name.length > 50 ? "0.6rem" : "1rem" }}>
+      <p
+        className="product-name"
+        style={{
+          fontSize:
+            props.name && props.name.length > 30
+              ? "0.8rem"
+              : props.name && props.name.length > 50
+              ? "0.6rem"
+              : "1rem",
+        }}
+      >
         {props.name}
       </p>
       <div className="details-class">
         <p>
           Status: <span>{props.status}</span>
         </p>
-        <p>
+        {/* price  */}
+        {/* <p>
           Price:{" "}
           {props.discount === 0 ? (
             <span>{`${props.price}`}</span>
@@ -80,7 +91,9 @@ const Product = (props) => {
           )}
           <span style={{ display: props.discount ? "inline-block" : "none" }}>{`${props.price - props.price * (props.discount / 100)}`}</span>
           <span>{`EGP`}</span>
-        </p>
+        </p> */}
+
+        {/* end of price  */}
         <IconButton
           aria-label="more"
           // aria-controls="long-menu"
@@ -91,7 +104,13 @@ const Product = (props) => {
         >
           <MoreHorizIcon style={{ marginLeft: "4px" }} />
         </IconButton>
-        <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleCloseMenu}>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleCloseMenu}
+        >
           <MenuItem
             onClick={() => {
               handleCloseMenu();
@@ -119,9 +138,14 @@ const Product = (props) => {
             </button>
           </div>
         )}
-        {props.discount !== 0 && <p className="discount-tag">{`${props.discount}% OFF`}</p>}
+        {/* {props.discount !== 0 && <p className="discount-tag">{`${props.discount}% OFF`}</p>} */}
 
-        <OrderModal name={props.name} image={props.image} show={orderModalShow} onHide={() => setOrderModalShow(false)} />
+        <OrderModal
+          name={props.name}
+          image={props.image}
+          show={orderModalShow}
+          onHide={() => setOrderModalShow(false)}
+        />
         <LoginModal
           show={loginModalShow}
           onHide={() => {
